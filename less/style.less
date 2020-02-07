@@ -1,0 +1,176 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
+
+@white: #f4f4f4;
+@lightOrange: rgba(204, 174, 121, 0.7);
+
+.displayFlex(@justify, @align) {
+  display: flex;
+  justify-content: @justify;
+  align-items: @align;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+.header {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  color: @white;
+
+  .navbar {
+    .displayFlex(space-between, center);
+    padding: 1rem 2rem;
+    background: #111;
+
+    h3 {
+      text-transform: uppercase;
+      font-size: 1.8rem;
+      font-weight: lighter;
+      letter-spacing: 2px;
+    }
+
+    .links {
+      .displayFlex(space-between, center);
+      list-style: none;
+      width: 14%;
+
+      li a {
+        text-decoration: none;
+        font-size: 1.1rem;
+        text-transform: capitalize;
+        color: @white;
+      }
+
+      .template {
+        font-size: 0.9rem;
+        background: #ff9b05;
+        padding: 0.5rem 0.7rem;
+        border-radius: 3px;
+      }
+    }
+  }
+
+  .open {
+    color: @lightOrange;
+    position: absolute;
+    background: transparent;
+    top: 7%;
+    left: 2%;
+    font-size: 4rem;
+    z-index: 100;
+    cursor: pointer;
+    transition: all 0.7s ease;
+
+    &.rotate {
+      transform: rotate(140deg);
+    }
+  }
+
+  .title-container {
+    height: 95%;
+    .displayFlex(center, center);
+    flex-direction: column;
+    padding-top: 50rem;
+    text-transform: capitalize;
+    background: url("../architecture-buildings-business-city-325185.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 4;
+
+    &::after {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: -1;
+    }
+
+    h1 {
+      font-size: 4rem;
+      border-top: 4px solid @white;
+      border-bottom: 4px solid @white;
+      font-weight: normal;
+      letter-spacing: 3px;
+      padding: 1rem 0;
+    }
+
+    .description {
+      font-size: 1.8rem;
+      padding: 1rem 0;
+    }
+
+    .name {
+      font-size: 1.5rem;
+      letter-spacing: 3px;
+      padding: 0.2rem 2.5rem;
+      background: @lightOrange;
+    }
+  }
+
+  .mobile {
+    width: 300px;
+    height: 100%;
+    border: 1px solid @white;
+    background: @white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 5rem 0 0;
+    transition: all 0.8s ease;
+    transform: translate(-1000px);
+
+    &.open-side-menu {
+      transform: translate(0px);
+    }
+
+    .nav-mobile {
+      .displayFlex(center, center);
+      flex-direction: column;
+      background: @white;
+      color: #333;
+      position: relative;
+      padding: 2rem;
+
+      p {
+        font-size: 1.6rem;
+        font-weight: bold;
+      }
+
+      .mobile-links {
+        list-style: none;
+        padding-top: 3rem;
+        text-transform: uppercase;
+        font-weight: bold;
+
+        li a {
+          color: #333;
+          text-decoration: none;
+          display: inline-block;
+          margin: 0 0 1rem;
+          padding: 0.4rem 0.6rem;
+          border: 1px solid @white;
+          transition: all 0.3s ease;
+
+          &:hover {
+            color: #ccae79;
+            border: 1px solid #ccae79;
+            border-radius: 16px;
+          }
+        }
+      }
+    }
+  }
+}
